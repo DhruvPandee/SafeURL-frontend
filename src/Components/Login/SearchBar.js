@@ -25,7 +25,7 @@ const SearchBar = (setOpenModal) => {
       </div>
       <div>
         <button
-          className="check"
+          id="check"
           onClick={() => {
             setModalOpen(true);
           }}
@@ -34,7 +34,7 @@ const SearchBar = (setOpenModal) => {
         </button>
         {modalOpen && <Modal url={url} setOpenModal={setModalOpen} />}
 
-        <button>Report</button>
+        <button id="report">Report</button>
       </div>
     </>
   );
