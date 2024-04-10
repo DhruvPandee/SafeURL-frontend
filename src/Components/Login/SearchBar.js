@@ -15,7 +15,7 @@ const SearchBar = (setOpenModal, setOpenReport) => {
   }
 
   return (
-    <div>
+    <div className="input-container">
       <div className="input-wrapper">
         <FaSearch id="search-icon" />
         <input

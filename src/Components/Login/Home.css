@@ -1,12 +1,15 @@
 .body {
   font-family: sans-serif;
-  background: url("img3.jpg") no-repeat center/ cover;
+  background: url("img3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
   display: flex;
   padding: 0;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 .search-bar-container {
   width: 40%;
@@ -60,7 +63,15 @@
 }
 @media (max-width: 400px) {
   .body {
-    right: -100%;
-    background: url("img3.jpg") no-repeat center/ cover;
+    background: url("img3.jpg");
+    position: fixed;
+    background-position: initial;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .search-bar-container {
+    justify-content: start;
+    margin: 100px;
   }
 }

@@ -74,3 +74,10 @@
 #reportBtn {
   background-color: crimson;
 }
+@media (max-width: 400px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+  }
+}

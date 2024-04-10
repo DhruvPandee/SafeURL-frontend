@@ -48,7 +48,7 @@ function Modal({ url, setOpenModal, setOpenReport }) {
           ) : (
             <h1>
               This URL is{" "}
-              {safe == null ? " not in the database" : safe ? "safe" : "unsafe"}
+              {safe == null ? " not in the Database" : safe ? "safe" : "unsafe"}
             </h1>
           )}
         </div>
