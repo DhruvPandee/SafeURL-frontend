@@ -7,7 +7,6 @@ import Report from "./Report";
 const SearchBar = (setOpenModal, setOpenReport) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
-
   const [url, setURL] = useState("");
 
   function handleChange(e) {
@@ -16,7 +15,7 @@ const SearchBar = (setOpenModal, setOpenReport) => {
   }
 
   return (
-    <>
+    <div>
       <div className="input-wrapper">
         <FaSearch id="search-icon" />
         <input
@@ -25,7 +24,7 @@ const SearchBar = (setOpenModal, setOpenReport) => {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <div>
+      <div className="button-container">
         <button
           id="check"
           onClick={() => {
@@ -52,7 +51,7 @@ const SearchBar = (setOpenModal, setOpenReport) => {
         </button>
         {reportOpen && <Report url={url} setOpenReport={setReportOpen} />}
       </div>
-    </>
+    </div>
   );
 };
 export default SearchBar;
