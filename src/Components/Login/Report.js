@@ -1,43 +1,31 @@
-import React, { useState, useEffect } from "react";
-import "./Modal.css";
+import React from "react";
+import "./Report.css";
 
-function Report({ setOpenModal }) {
-  const [safe, setSafe] = useState(null);
+function Report({ url, setOpenReport }) {
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
+    <div className="reportBackground">
+      <div className="reportContainer">
         <div className="titleCloseBtn">
           <button
             onClick={() => {
-              setOpenModal(false);
+              setOpenReport(false);
             }}
           >
             X
           </button>
         </div>
         <div className="title">
-          <h1>
-            This website is{" "}
-            {safe == null ? "loading..." : safe ? "safe" : "unsafe"}
-          </h1>
+          <h1>This website is Reported</h1>
         </div>
 
         <div className="footer">
           <button
             onClick={() => {
-              setOpenModal(false);
+              setOpenReport(false);
             }}
-            id="cancelBtn"
+            id="cancel"
           >
             Cancel
-          </button>
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            id="reportBtn"
-          >
-            Report
           </button>
         </div>
       </div>

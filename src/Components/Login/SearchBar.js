@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./Search.css";
 import { FaSearch } from "react-icons/fa";
 import Modal from "./Modal";
-// import Report from "./Report";
+import Report from "./Report";
 
-const SearchBar = (setOpenModal) => {
+const SearchBar = (setOpenModal, setOpenReport) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
+
   const [url, setURL] = useState("");
 
   function handleChange(e) {
@@ -32,9 +34,23 @@ const SearchBar = (setOpenModal) => {
         >
           Check
         </button>
-        {modalOpen && <Modal url={url} setOpenModal={setModalOpen} />}
+        {modalOpen && (
+          <Modal
+            url={url}
+            setOpenModal={setModalOpen}
+            setOpenReport={setReportOpen}
+          />
+        )}
 
-        <button id="report">Report</button>
+        <button
+          onClick={() => {
+            setReportOpen(true);
+          }}
+          id="report"
+        >
+          Report
+        </button>
+        {reportOpen && <Report url={url} setOpenReport={setReportOpen} />}
       </div>
     </>
   );

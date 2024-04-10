@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import Report from "./Report";
 import "./Modal.css";
-
+import HashLoader from "react-spinners/HashLoader";
 import axios from "axios";
 import URL from "../../api";
 
-function Modal({ url, setOpenModal }) {
+function Modal({ url, setOpenModal, setOpenReport }) {
   console.log("URL:", url);
   const [safe, setSafe] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [reportOpen, setReportOpen] = useState(false);
 
   useEffect(() => {
     async function fetchSafe() {
@@ -41,16 +43,14 @@ function Modal({ url, setOpenModal }) {
           </button>
         </div>
         <div className="title">
-          <h1>
-            This website is{" "}
-            {loading
-              ? "loading..."
-              : safe == null
-              ? "URL not in the database"
-              : safe
-              ? "safe"
-              : "unsafe"}
-          </h1>
+          {loading ? (
+            <HashLoader className="hash" color="#8236d8" speedMultiplier={1} />
+          ) : (
+            <h1>
+              This URL is{" "}
+              {safe == null ? " not in the database" : safe ? "safe" : "unsafe"}
+            </h1>
+          )}
         </div>
 
         <div className="footer">
@@ -64,12 +64,14 @@ function Modal({ url, setOpenModal }) {
           </button>
           <button
             onClick={() => {
+              setOpenReport(true);
               setOpenModal(false);
             }}
             id="reportBtn"
           >
-            Visit anyway
+            Report
           </button>
+          {reportOpen && <Report url={url} setOpenReport={setReportOpen} />}
         </div>
       </div>
     </div>
