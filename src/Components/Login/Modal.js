@@ -47,8 +47,16 @@ function Modal({ url, setOpenModal, setOpenReport }) {
             <HashLoader className="hash" color="#8236d8" speedMultiplier={1} />
           ) : (
             <h1>
-              This URL is{" "}
-              {safe == null ? " not in the Database" : safe ? "safe" : "unsafe"}
+              {" "}
+              {
+                (url = " "
+                  ? "Enter a URL"
+                  : safe == null
+                  ? " not in the Database"
+                  : safe
+                  ? " This URL is safe"
+                  : " This URL is unsafe")
+              }
             </h1>
           )}
         </div>

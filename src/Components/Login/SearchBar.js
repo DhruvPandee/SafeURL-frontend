@@ -20,7 +20,6 @@ const SearchBar = (setOpenModal, setOpenReport) => {
         <FaSearch id="search-icon" />
         <input
           placeholder="Enter URL"
-          required
           value={url}
           onChange={(e) => handleChange(e)}
         />

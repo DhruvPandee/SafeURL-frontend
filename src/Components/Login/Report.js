@@ -49,7 +49,13 @@ function Report({ url, setOpenReport }) {
           ) : (
             <h1>
               {" "}
-              {report ? "something went wrong" : "This website is reported"}
+              {
+                (url = " "
+                  ? "Enter a URL"
+                  : report
+                  ? "something went wrong"
+                  : "This website is reported")
+              }
             </h1>
           )}
         </div>
